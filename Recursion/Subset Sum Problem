@@ -1,0 +1,37 @@
+
+import java.util.*;
+class Recursion {
+    int subsetSumProblem(ArrayList<Integer> arr, int sum, int index, int newSum, int count, int len) {
+        if(len == 0) {
+            if(sum == newSum) {
+                count++;
+            }
+            return count;
+        }
+        
+        //Inclusion
+        count = subsetSumProblem(arr, sum, index+1, newSum+arr.get(index), count, len-1);
+        
+        //Exclusion
+        count = subsetSumProblem(arr, sum, index+1, newSum, count, len-1);
+        
+        return count;
+    }
+    public static void main(String[] args) {
+        Recursion recObj = new Recursion();
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        arr.add(3);
+        arr.add(34);
+        arr.add(4);
+        arr.add(12);
+        arr.add(5);
+        arr.add(2);
+        ArrayList<Integer> temp = new ArrayList<Integer>(); 
+        int index = 0;
+        int count = 0;
+        int sum = 9;
+        int newSum = 0;
+        int len = 5;
+        System.out.println(recObj.subsetSumProblem(arr, sum, index, newSum, count, len));
+      }
+}
