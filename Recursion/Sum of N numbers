@@ -1,0 +1,19 @@
+class Recursion {
+    int sumOfN(int n) {
+    if(n == 1 || n == 0)
+        return n;
+    int recCall = sumOfN(n-1);
+    int res = recCall + n;
+    return res;
+    }
+    public static void main(String[] args) {
+        Recursion recObj = new Recursion();
+        System.out.println(recObj.sumOfN(3));
+    }
+}
+
+
+/*
+n = 5, Output = 15
+n = 3, Output = 6
+*/
