@@ -1,7 +1,7 @@
 class Recursion {
     int fibonacciOfNthNum(int n) {
     if(n == 0 || n == 1)
-        return 1;
+        return n;
     int res = fibonacciOfNthNum(n-1) + fibonacciOfNthNum(n-2);
     return res;
     }
