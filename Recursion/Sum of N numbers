@@ -1,9 +1,9 @@
 class Recursion {
     int sumOfN(int n) {
-    if(n == 1 || n == 0)
-        return n;
-    int recCall = sumOfN(n-1);
-    int res = recCall + n;
+    if(n == 1)                   // Base Case
+        return 1;
+    int recCall = sumOfN(n-1);   // Recursive Call
+    int res = recCall + n;       // Small Calculation
     return res;
     }
     public static void main(String[] args) {
