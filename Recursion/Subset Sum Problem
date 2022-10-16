@@ -1,4 +1,5 @@
-
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
 import java.util.*;
 class Recursion {
     int subsetSumProblem(ArrayList<Integer> arr, int sum, int index, int newSum, int count, int len) {
@@ -26,12 +27,12 @@ class Recursion {
         arr.add(12);
         arr.add(5);
         arr.add(2);
-        ArrayList<Integer> temp = new ArrayList<Integer>(); 
+        
         int index = 0;
         int count = 0;
         int sum = 9;
         int newSum = 0;
-        int len = 5;
+        int len = arr.size()-1;
         System.out.println(recObj.subsetSumProblem(arr, sum, index, newSum, count, len));
       }
 }
