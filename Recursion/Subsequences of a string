@@ -1,0 +1,20 @@
+
+class Recursion {
+    void subsequenceOfString(String str, String temp, int index) {
+        if(str.length() == index) {
+            System.out.println(temp);
+            return;
+        }
+        // Inclusion 
+        subsequenceOfString(str, temp+str.charAt(index), index+1);
+        subsequenceOfString(str, temp, index+1);
+        return;
+    }
+    public static void main(String[] args) {
+        Recursion recObj = new Recursion();
+        String str = "abc";
+        recObj.subsequenceOfString(str, "", 0);
+    }
+}
+
+
