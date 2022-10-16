@@ -1,0 +1,12 @@
+class Recursion {
+    int fibonacciOfNthNum(int n) {
+    if(n == 0 || n == 1)
+        return 1;
+    int res = fibonacciOfNthNum(n-1) + fibonacciOfNthNum(n-2);
+    return res;
+    }
+    public static void main(String[] args) {
+        Recursion recObj = new Recursion();
+        System.out.println(recObj.fibonacciOfNthNum(5));
+    }
+}
