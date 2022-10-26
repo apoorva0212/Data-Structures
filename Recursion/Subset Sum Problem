@@ -1,0 +1,42 @@
+import java.util.*;
+class Recursion {
+    void subsets(
+            ArrayList<Integer> arr,
+            ArrayList<Integer> output,
+            int index, 
+            int sum,
+            int realSum
+            ) {
+          if(index == arr.size()) {
+              if(sum == realSum) 
+              {
+                  System.out.println(output);
+              }
+               return;
+          }
+          
+          
+          // take Condition
+          output.add(arr.get(index));
+          realSum+=arr.get(index);
+          subsets(arr,new ArrayList<>(output), index+1, sum, realSum);
+          realSum-=arr.get(index);
+          output.remove(arr.get(index));
+          
+          // not take
+          subsets(arr,new ArrayList<>(output), index+1, sum, realSum);
+          
+    }
+    public static void main(String[] args) {
+        Recursion recObj = new Recursion();
+        ArrayList<Integer> arr = new ArrayList<>();
+        List<List<Integer>> subset = new ArrayList<>();
+        arr.add(1);
+        arr.add(2);
+        arr.add(3);
+        int sum = 3;
+        recObj.subsets(arr,new ArrayList<>(),0, sum, 0);
+    }
+}
+
+// [1, 2][3]
