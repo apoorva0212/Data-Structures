@@ -1,0 +1,30 @@
+import java.util.*;
+class Recursion {
+    void subsets(
+            ArrayList<Integer> arr,
+            List<List<Integer>> subset,
+            ArrayList<Integer> output,
+            int index
+            ) {
+          if(index == arr.size()) {
+              subset.add(output);
+              return;
+          }      
+          subsets(arr,subset, new ArrayList<>(output), index+1);
+          // take Condition
+          output.add(arr.get(index));
+          subsets(arr,subset, new ArrayList<>(output), index+1);
+    }
+    public static void main(String[] args) {
+        Recursion recObj = new Recursion();
+        ArrayList<Integer> arr = new ArrayList<>();
+        List<List<Integer>> subset = new ArrayList<>();
+        arr.add(1);
+        arr.add(2);
+        arr.add(3);
+        recObj.subsets(arr,subset,new ArrayList<>(),0);
+        System.out.println(subset);
+    }
+}
+
+// [[], [3], [2], [2, 3], [1], [1, 3], [1, 2], [1, 2, 3]]
