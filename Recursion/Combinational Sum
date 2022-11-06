@@ -1,0 +1,30 @@
+/* Given an array of positive integers arr[] and an integer x, The task is to find all unique combinations in arr[] where the sum is equal to x. 
+The same repeated number may be chosen from arr[] an unlimited number of times. Elements in a combination (a1, a2, …, ak) must be printed in non-descending order. (ie, a1 <= a2 <= … <= ak). If there is no combination possible print “Empty”. */
+
+import java.util.*;
+class Recursion {
+public void findCombinations(int index, int[] arr, int target, List<List<Integer>> ans, List<Integer> ds) {
+    if(index == arr.length) {
+        if(target == 0) {
+            ans.add(new ArrayList<>(ds));
+        }
+        return;
+    }
+        
+        if(arr[index] <= target) {
+            ds.add(arr[index]);
+            findCombinations(index, arr, target-arr[index], ans, ds);
+            ds.remove(ds.size() - 1);
+        }
+        findCombinations(index+1, arr, target, ans, ds);
+    }
+    public static void main(String[] args) {
+        int[] input = new int[] {2,3,6,7};
+        List<List<Integer>> ans = new ArrayList<>();
+        int target = 7;
+        Recursion recObj = new Recursion();
+        recObj.findCombinations(0, input, target, ans, new ArrayList<>());
+        System.out.println(ans); 
+        // [[2, 2, 3], [7]]
+     }
+}
