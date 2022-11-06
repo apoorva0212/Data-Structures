@@ -1,0 +1,32 @@
+import java.util.*;
+class Recursion {
+public static void possibleWords(int ind, int arr[], HashMap<Integer, String> map, StringBuilder sb, List<String> res) {
+      if(sb.length() == arr.length) {
+          res.add(sb.toString());
+          return;
+      }
+      String getLetters = map.get(arr[ind]); // 2 - abc
+      for(int j=0; j<getLetters.length(); j++) {
+          sb.append(getLetters.charAt(j));
+          possibleWords(ind+1, arr, map, sb, res);
+          sb.deleteCharAt(sb.length() - 1);
+      }
+      
+    }
+    public static void main(String[] args) {
+        HashMap<Integer, String> map = new HashMap<>();
+        map.put(2, "abc");
+        map.put(3, "def");
+        map.put(4, "ghi");
+        map.put(5, "jkl");
+        map.put(6, "mno");
+        map.put(7, "pqrs");
+        map.put(8, "tuv");
+        map.put(9, "wxyz");
+        int arr[] = new int[] {2,4};
+        int n = 2;
+        ArrayList<String> res = new ArrayList<>();
+        possibleWords(0, arr, map, new StringBuilder(), res);
+        System.out.println(res); // [ag, ah, ai, bg, bh, bi, cg, ch, ci]
+     }
+}
